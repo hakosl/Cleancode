@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h1 id="json-parser-refactor-task-hints">Json parser refactor task hints</h1>
+<p>The getJson function tries to parse a xml document structure into json based on the url that is passed in. It then gets the start node of the document, either the root ‘/’ or by some relative xPath.</p>
+<p>After if has a start node it starts iterating through. We can assume that the data structure is a tree as there is a check for each node it it has children. However the code doesn’t seem to iterate recursively through the tree. It rather iterates through it more like a plain list. Inside the for loop the building of the jsonString is done.</p>
+<p>When we look at the for loop we can see that for each iteration it checks whether the current element name is either of type ‘doc’ or ‘folder’. Otherwise it continues without adding anything to the jsonString. After the for loop is done it seems to be doing some ending preparation to the jsonString before its returned</p>
+<p>From this quick analysis of the function we can see that the function does 3 main things</p>
+<ol>
+<li>Gets the first node of the xml tree structure.</li>
+<li>Loops through the node tree and builds a json string</li>
+<li>Adds some finishing strings to the json string and returns.</li>
+</ol>
+<p>These 3 parts of the code are great candidates for moving over to functions to get our refactoring started.</p>
+<h1 id="the-json-string-building">The json string building</h1>
+<p>This is where all the meat of the function is. Theres a lot of nested if/else and further for loops going on. Thats a lot to keep in your head at the same time. Lets work on reducing those if/else blocks. The easiest way is to break down each block into their own functions. When they are separated its easier to look for code duplication and get an overview what is going on.</p>
+<h3 id="breaking-down-the-first-code-blocks">Breaking down the first code blocks</h3>
+<p>We can see that we build on the json if the element type is ‘doc’ or ‘folder’. Lets move those two blocks to their own functions.</p>
+<p>Now lets compare the two functions. Can we se any similarities? are there actually any? Where do they even differ?</p>
+<p><strong>The similarities seem to be:</strong></p>
+<ul>
+<li>Opening and closing strings</li>
+<li>Iterates through attributes</li>
+<li>Adds data string as first entry</li>
+<li>Checks for key or trnum</li>
+</ul>
+<p><strong>And how the differ:</strong></p>
+<ul>
+<li>Document type checks for hasChildren.</li>
+<li>key and trnum parts of the long string concat functions.</li>
+</ul>
+<p>So it seems the only difference here is that document adds a string for hasChildren and the key and trnum strings are slightly different.</p>
+<h3 id="simplifying-the-string-concat">Simplifying the string concat</h3>
+<p>When looking at the doc and folder key/trnum strings, the only place they differ really is the keyContent: ‘_dk:/_fk:’ and trnumContent: ‘_dtrn:/_fth:’ string parts. The rest is totally the same. What we can also see, is that even key and trnum strings only differ in their key or trum contents. So we should probably be able to merge these 4 blocks of code, into only 1 and then only conditionally add the ‘content’ part.</p>
+</div>
+</body>
+
+</html>
