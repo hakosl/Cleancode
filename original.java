@@ -19,9 +19,7 @@ public String getJson(URL url, String xPathString) {
 
         node = TOCDoc.getRootElement();
     } else {
-        String realXPathString = pathMapping(xPathString);
-        System.out.println(realXPathString);
-        node = (Element) TOCDoc.selectSingleNode(realXPathString);
+        node = (Element) TOCDoc.selectSingleNode(xPathString);
     }
 
     for (Iterator<Element> i = node.elementIterator(); i.hasNext();) {
