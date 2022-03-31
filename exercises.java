@@ -146,9 +146,10 @@ Her har vi en klasse som styrer hvilken mengde discount man kan få basert på g
 Vi har her veldig lite informasjon, så prøv så godt som du kan.
 
 - calculate: Skal regne ut pricen for en gitt kunde.
-- type: Skal her stå for en status om kunden som kan si hvor verdifull kunden er. Vi vet veldig lite her, så vi kan bare anta 4 forskjellige nivåer
+- type: Skal her stå for en status om kunden som kan si hvor verdifull kunden er og dermed bestemmer hvilken discount de får. Vi vet veldig lite her, så vi kan bare anta 4 forskjellige nivåer
 - years: Hvor mange år personen har vært kunde. Kunden får 1% men maksimalt 5 procent i loyalty discount.
 - amount: Den opprinnelige prisen
+- result: Dette er så den totale prisen med loyaltydiscount og kundediscount trukket fra
 
 public class Class1 {
   public decimal calculate(decimal amount, int type, int years) {
