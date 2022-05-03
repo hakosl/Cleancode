@@ -1,3 +1,11 @@
+Oppgavene under (skrevet i pseudokode) bryter med en eller flere Clean Code prinsipper.
+Se hvor mange du klarer å identifisere. Prøv gjerne også å se om
+du klarer refaktorere dem.
+
+---------------------------
+---------------------------
+
+
 Oppgave 1:
 
 // get the country code
@@ -28,9 +36,9 @@ Oppgave 3:
 
 function shouldShowImage(itemIndex, article, showAllImages) {
   return [0, 1, 2].includes(itemIndex)
-    ? !!article.imageUrl
+    ? article.imageUrl != null
     : showAllImages
-      ? !!article.imageUrl
+      ? article.imageUrl != null
       : false
 }
 
@@ -38,29 +46,6 @@ function shouldShowImage(itemIndex, article, showAllImages) {
 --------------------------
 
 Oppgave 4:
-
-
-private static List readLines(String fileName) {
-  String line;
-  List file = new List();
-
-  try {    
-    BufferedReader in = new BufferedReader(new FileReader(fileName));
-    while ((line = in.readLine()) != null)
-      file.add(line);
-    in.close();
-  } catch (Exception e){
-    System.out.println(e);
-    return null;
-  }
-  return file;
-}
-
----------------------------
----------------------------
-
-Oppgave 5:
-
 
 boolean userEmail = user.email.contains('computas');
 if(userEmail) {
@@ -73,7 +58,7 @@ if(userEmail) {
 ---------------------------
 ---------------------------
 
-Oppgave 6:
+Oppgave 5:
 
 String name = "Ryan McDermott";
 
@@ -85,7 +70,7 @@ splitIntoFirstAndLastName();
 ---------------------------
 ---------------------------
 
-Oppgave 7:
+Oppgave 6:
 
 function getProduct(htmlResponse) {
    String title = htmlResponse.css('.title').html();
@@ -106,7 +91,11 @@ function getProduct(htmlResponse) {
 ---------------------------
 ---------------------------
 
-Oppgave 8:
+---------------------------
+Ekstraoppgaver
+---------------------------
+
+Oppgave 7:
 
 Her har vi en enkel og noe uferdig versjon av MineSweeper. 
 
@@ -140,7 +129,7 @@ public class MineSweeper {
 ---------------------------
 ---------------------------
 
-Oppgave 9:
+Oppgave 8:
 
 Her har vi en klasse som styrer hvilken mengde discount man kan få basert på gitte typer.
 Vi har her veldig lite informasjon, så prøv så godt som du kan.
