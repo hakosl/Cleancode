@@ -70,41 +70,6 @@ function shouldShowImage(itemIndex, article, showAllImages) {
 
 --------------------------
 
-private static List readLines(String fileName) {
-  String line;
-  List file = new List();
-
-  try {    
-    BufferedReader in = new BufferedReader(new FileReader(fileName));
-    while ((line = in.readLine()) != null)
-      file.add(line);
-    in.close();
-  } catch (Exception e){
-    System.out.println(e);
-    return null;
-  }
-  return file;
-}
-
-Issues 
-- unnescessary code (also hides potential bugs)
-- bad naming (yes you read a file, but what does it contain?. The function says readLines. So should it not rather be lines that you return?)
-
-private static List readLines(String fileName) throws IOException {
-  String line;
-  List lines = new List();
-  BufferedReader reader = new BufferedReader(new FileReader(fileName));
-
-  while ((line = reader.readLine()) != null) {
-    lines.add(line);
-  }
-  reader.close();
-
-  return lines;
-}
-
----------------------------
-
 boolean userEmail = user.email.contains('computas');
 if(userEmail) {
     addUser(user);
@@ -114,7 +79,7 @@ if(userEmail) {
 }
 
 Issues
-- duplicated code.
+- duplicated code (Not DRY).
 - bad naming (a boolean looks like it contains a string)
 - magical number
 
