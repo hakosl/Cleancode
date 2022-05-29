@@ -34,6 +34,11 @@ function canBuyBeer(age, money) {
 
 Oppgave 3:
 
+Her er det brukt javascript ternaries som basically er det samme som if else.
+if = utrykk  
+? = utrykk som evalures hvis true
+: = utrykk som evalueres hvis false
+
 function shouldShowImage(itemIndex, article, showAllImages) {
   return [0, 1, 2].includes(itemIndex)
     ? article.imageUrl != null
@@ -85,7 +90,12 @@ function getProduct(htmlResponse) {
 
    String sizesHTML = list(htmlResponse.css('.product .size').html());
    String[] sizes = [parseSize(htmlSize) for htmlSize in sizesHTML];
-   return sizes;
+
+   return {
+     sizes,
+     price,
+     title
+   };
 }
 
 ---------------------------
