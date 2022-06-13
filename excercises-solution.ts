@@ -14,9 +14,11 @@ function a() {
 
 // Issues
 // - Kommentarer som ikke gir mer verdi til forståelsen
+// - Dårlig navngivning av funksjon
+// - Magiske strings i koden
 const CountryCodeAmerica = 'US';
 
-function a() {
+function countryCodeIsAmerican() {
   const countryCode: string = getCountryCode('REMOTE_ADDR');
 
   if (countryCode == CountryCodeAmerica) {
@@ -446,14 +448,14 @@ const DISCOUNT_FOR_EXECUTIVE_CUSTOMERS = 0.5;
 const DISCOUNT_FOR_UBER_CUSTOMERS = 0.7;
 
 class DiscountManager {
-  getPriceWithDiscount(price: number, customerStatus: CustomerStatus, yearsBeingACustomer: number): number {
+  public getPriceWithDiscount(price: number, customerStatus: CustomerStatus, yearsBeingACustomer: number): number {
     const discountForLoyalty = this.getDiscountForLoyalty(yearsBeingACustomer);
     const discountForCustomerStatus = this.getDiscountForCustomerStatus(price, customerStatus);
     const discountedPrice =  price - discountForCustomerStatus - discountForLoyalty;
     return discountedPrice;
   }
 
-  getDiscountForLoyalty(yearsBeingACustomer: number) {
+  private getDiscountForLoyalty(yearsBeingACustomer: number) {
     const maxDiscountForLoyalty = MAXIMUM_DISCOUNT_FOR_LOYALTY / 100;
 
     if (yearsBeingACustomer > MAXIMUM_DISCOUNT_FOR_LOYALTY) {
@@ -462,7 +464,7 @@ class DiscountManager {
     return yearsBeingACustomer / 100;
   }
 
-  getDiscountForCustomerStatus(price: number, customerStatus: CustomerStatus) {
+  private getDiscountForCustomerStatus(price: number, customerStatus: CustomerStatus) {
     switch (customerStatus) {
       case CustomerStatus.Basic:
         return price;
@@ -475,7 +477,7 @@ class DiscountManager {
     }
   }
 
-  getPriceDiscount(discount: number, price: number) {
+  private getPriceDiscount(discount: number, price: number) {
     return discount * price;
   }
 }
