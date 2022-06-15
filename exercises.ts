@@ -3,10 +3,9 @@
 // du klarer refaktorere dem.
 
 // ---------------------------
+// Oppgave 1:
 // ---------------------------
 
-
-// Oppgave 1:
 function a() {
   // get the country code
   const countryCode: string = getCountryCode('REMOTE_ADDR');
@@ -18,10 +17,10 @@ function a() {
   }
 }
 
-// ---------------------------
-// ---------------------------
 
+// ---------------------------
 // Oppgave 2:
+// ---------------------------
 
 function canBuyBeer(age: number, money: number) {
   if (age >= 21 && money >= 20) {
@@ -30,10 +29,10 @@ function canBuyBeer(age: number, money: number) {
   return false
 }
 
-// --------------------------
-// --------------------------
 
+// --------------------------
 // Oppgave 3:
+// --------------------------
 
 // Her er det brukt javascript ternaries som basically er det samme som if else.
 // if = utrykk  
@@ -48,14 +47,12 @@ function shouldShowImage(itemIndex: number, article: {imageUrl: string}, showAll
       : false
 }
 
-// --------------------------
-// --------------------------
 
-interface IUser {
-  email: string
-};
-
+// --------------------------
 // Oppgave 4:
+// --------------------------
+
+
 function f(user: IUser) {
   const userEmail: boolean = user.email.includes('computas');
   if (userEmail) {
@@ -66,10 +63,15 @@ function f(user: IUser) {
   }
 }
 
-// ---------------------------
-// ---------------------------
+// Ikke en del av oppgaven
+interface IUser {
+  email: string
+};
 
+
+// ---------------------------
 // Oppgave 5:
+// ---------------------------
 
 let n: any = "Ryan McDermott";
 
@@ -78,10 +80,10 @@ function splitIntoFirstAndLastName() {
 }
 splitIntoFirstAndLastName();
 
-// ---------------------------
-// ---------------------------
 
+// ---------------------------
 // Oppgave 6:
+// ---------------------------
 
 function getProduct(htmlResponse) {
   const title: string = htmlResponse.css('.title').html();
@@ -104,21 +106,20 @@ function getProduct(htmlResponse) {
   };
 }
 
+
 // ---------------------------
+// Ekstraoppgaver:
 // ---------------------------
 
 // ---------------------------
-// Ekstraoppgaver
-// ---------------------------
-
 // Oppgave 7:
+// ---------------------------
 
 // Her har vi en enkel og noe uferdig versjon av MineSweeper. 
 
 // Her kan man anta at myTruth og myShow allerede er initialisert med verdier.
 // - MyTruth vil inneholde 0 i de tilfellene det ikke er noen mine på gitt index. 
 // - MyShow vil si noe om cellen på gitt index er skjult eller ikke.
-
 
 class MineSweeper {
   myTruth: Number[][];
@@ -142,10 +143,10 @@ class MineSweeper {
   }
 }
 
-// ---------------------------
-// ---------------------------
 
+// ---------------------------
 // Oppgave 8:
+// ---------------------------
 
 // Her har vi en klasse som styrer hvilken mengde discount man kan få basert på gitte typer.
 // Vi har her veldig lite informasjon, så prøv så godt som du kan.
