@@ -85,7 +85,7 @@ splitIntoFirstAndLastName();
 // Oppgave 6:
 // ---------------------------
 
-function getProduct(htmlResponse) {
+function getProduct(htmlResponse: HtmlResponse) {
   const title: string = htmlResponse.css('.title').html();
   const priceHTML: string = htmlResponse.css('.price').html();
   let price: Number;
@@ -104,6 +104,11 @@ function getProduct(htmlResponse) {
     price,
     title
   };
+}
+
+// Ikke en del av oppgaven
+interface HtmlResponse {
+  css: (selector: string) => {html: () => string}
 }
 
 
