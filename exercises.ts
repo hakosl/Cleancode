@@ -120,7 +120,6 @@ function getProduct(htmlResponse) {
 // - MyShow vil si noe om cellen på gitt index er skjult eller ikke.
 
 
-
 class MineSweeper {
   myTruth: Number[][];
   myShow: boolean[][];
