@@ -4,16 +4,18 @@
 
 // ---------------------------
 // Oppgave 1:
+//
+// HINT: Kommentarer
 // ---------------------------
 
 function a() {
-  // get the country code
-  const countryCode: string = getCountryCode('REMOTE_ADDR');
+  // get the language code
+  const languageCode = window.navigator.language
 
-  // if country code is US
-  if (countryCode == 'US') {
-    // display the form input for state
-    console.log(formInputState());
+  // if language ends with us
+  if (countryCode.endsWith('US')) {
+    // log message
+    console.log('Freedom!');
   }
 }
 
@@ -32,20 +34,22 @@ function canBuyBeer(age: number, money: number) {
 
 // --------------------------
 // Oppgave 3:
+//
+// Her er det brukt javascript ternaries som returnerer forskjellige verdier
+// om en condition er true eller false
+// condition ? ifConditionTrue : ifConditionFalse
 // --------------------------
 
-// Her er det brukt javascript ternaries som basically er det samme som if else.
-// if = utrykk  
-// ? = utrykk som evalures hvis true
-// : = utrykk som evalueres hvis false
-
-function shouldShowImage(itemIndex: number, article: { imageUrl: string }, showAllImages: boolean) {
+function shouldShowImage(itemIndex: number, article: Article, showAllImages: boolean) {
   return [0, 1, 2].includes(itemIndex)
-    ? article.imageUrl != null
+    ? article.imageUrl !== null
     : (showAllImages
-      ? article.imageUrl != null
+      ? article.imageUrl !== null
       : false);
 }
+
+// Ikke en del av oppgaven
+interface Article { imageUrl: string }
 
 
 // --------------------------
@@ -57,9 +61,9 @@ function f(user: User) {
   const userEmail = user.email.includes('computas');
   if (userEmail) {
     addUser(user);
-    alertUser();
+    alert("Welcome!");
   } else {
-    alertUser();
+    alert("Welcome!");
   }
 }
 
@@ -118,13 +122,13 @@ interface HtmlResponse {
 
 // ---------------------------
 // Oppgave 7:
-// ---------------------------
-
+//
 // Her har vi en enkel og noe uferdig versjon av MineSweeper. 
-
+//
 // Her kan man anta at myTruth og myShow allerede er initialisert med verdier.
 // - MyTruth vil inneholde 0 i de tilfellene det ikke er noen mine på gitt index. 
 // - MyShow vil si noe om cellen på gitt index er skjult eller ikke.
+// ---------------------------
 
 class MineSweeper {
   myTruth: number[][];
@@ -151,16 +155,16 @@ class MineSweeper {
 
 // ---------------------------
 // Oppgave 8:
-// ---------------------------
-
+//
 // Her har vi en klasse som styrer hvilken mengde discount man kan få basert på gitte typer.
 // Vi har her veldig lite informasjon, så prøv så godt som du kan.
-
+//
 // - calculate: Skal regne ut pricen for en gitt kunde.
 // - type: Skal her stå for en status om kunden som kan si hvor verdifull kunden er og dermed bestemmer hvilken discount de får. Vi vet veldig lite her, så vi kan bare anta 4 forskjellige nivåer
 // - years: Hvor mange år personen har vært kunde. Kunden får 1% men maksimalt 5 procent i loyalty discount.
 // - amount: Den opprinnelige prisen
 // - result: Dette er så den totale prisen med loyaltydiscount og kundediscount trukket fra
+// ---------------------------
 
 function calculate(amount: number, type: number, years: number) {
   let result = 0;
