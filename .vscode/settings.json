@@ -1,0 +1,6 @@
+{
+    "files.exclude": {
+        "**/*-solution.ts": true,
+        "**/*.pptx": true
+    }
+}
