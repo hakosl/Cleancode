@@ -1,4 +1,4 @@
-// Oppgavene under (skrevet i pseudokode) bryter med en eller flere Clean Code prinsipper.
+// Oppgavene under (skrevet i typescript) bryter med en eller flere Clean Code prinsipper.
 // Se hvor mange du klarer å identifisere. Prøv gjerne også å se om
 // du klarer refaktorere dem.
 
@@ -17,10 +17,6 @@ function a() {
     console.log(formInputState());
   }
 }
-
-// Mock funksjoner ikke en del av oppgaven
-const getCountryCode = (s: string) => s
-const formInputState = () => { }
 
 // ---------------------------
 // ---------------------------
@@ -70,11 +66,6 @@ function f(user: IUser) {
   }
 }
 
-// Ikke en del av oppgaven
-const addUser = (user: IUser) => { }
-const alertUser = () => { }
-
-
 // ---------------------------
 // ---------------------------
 
@@ -112,11 +103,6 @@ function getProduct(htmlResponse) {
     title
   };
 }
-
-// Ikke en del av oppgaven
-const parseSize = (htmlSize: string) => htmlSize
-
-
 
 // ---------------------------
 // ---------------------------
@@ -156,9 +142,6 @@ class MineSweeper {
     return 0 <= row && row < this.myTruth.length && 0 <= col && col < this.myTruth[0].length;
   }
 }
-
-// Ikke en del av oppgaven
-let cellPicked = (i: number, j: number) => { }
 
 // ---------------------------
 // ---------------------------
