@@ -24,9 +24,9 @@ function a() {
 
 function canBuyBeer(age: number, money: number) {
   if (age >= 21 && money >= 20) {
-    return true
+    return true;
   }
-  return false
+  return false;
 }
 
 
@@ -39,12 +39,12 @@ function canBuyBeer(age: number, money: number) {
 // ? = utrykk som evalures hvis true
 // : = utrykk som evalueres hvis false
 
-function shouldShowImage(itemIndex: number, article: {imageUrl: string}, showAllImages: boolean) {
+function shouldShowImage(itemIndex: number, article: { imageUrl: string }, showAllImages: boolean) {
   return [0, 1, 2].includes(itemIndex)
     ? article.imageUrl != null
-    : showAllImages
+    : (showAllImages
       ? article.imageUrl != null
-      : false
+      : false);
 }
 
 
@@ -53,8 +53,8 @@ function shouldShowImage(itemIndex: number, article: {imageUrl: string}, showAll
 // --------------------------
 
 
-function f(user: IUser) {
-  const userEmail: boolean = user.email.includes('computas');
+function f(user: User) {
+  const userEmail = user.email.includes('computas');
   if (userEmail) {
     addUser(user);
     alertUser();
@@ -64,7 +64,7 @@ function f(user: IUser) {
 }
 
 // Ikke en del av oppgaven
-interface IUser {
+interface User {
   email: string
 };
 
@@ -73,7 +73,7 @@ interface IUser {
 // Oppgave 5:
 // ---------------------------
 
-let n: string = "Ryan McDermott";
+let n = "Ryan McDermott";
 
 function splitIntoFirstAndLastName() {
   n = n.split(" ");
@@ -86,9 +86,9 @@ splitIntoFirstAndLastName();
 // ---------------------------
 
 function getProduct(htmlResponse: HtmlResponse) {
-  const title: string = htmlResponse.css('.title').html();
-  const priceHTML: string = htmlResponse.css('.price').html();
-  let price: Number;
+  const title = htmlResponse.css('.title').html();
+  const priceHTML = htmlResponse.css('.price').html();
+  let price: string;
 
   try {
     price = parseInt(priceHTML);
@@ -96,8 +96,8 @@ function getProduct(htmlResponse: HtmlResponse) {
     price = null;
   }
 
-  const sizesHTML: string[] = [htmlResponse.css('.product .size').html()];
-  const sizes: string[] = sizesHTML.map((htmlSize) => parseSize(htmlSize));
+  const sizesHTML = [htmlResponse.css('.product .size').html()];
+  const sizes = sizesHTML.map((htmlSize) => parseSize(htmlSize));
 
   return {
     sizes,
@@ -108,7 +108,7 @@ function getProduct(htmlResponse: HtmlResponse) {
 
 // Ikke en del av oppgaven
 interface HtmlResponse {
-  css: (selector: string) => {html: () => string}
+  css: (selector: string) => { html: () => string }
 }
 
 
@@ -127,9 +127,9 @@ interface HtmlResponse {
 // - MyShow vil si noe om cellen på gitt index er skjult eller ikke.
 
 class MineSweeper {
-  myTruth: Number[][];
+  myTruth: number[][];
   myShow: boolean[][];
-  cellPicked(row: number, col: number): void {
+  cellPicked(row: number, col: number) {
     if (this.inBounds(row, col) && !this.myShow[row][col]) {
       this.myShow[row][col] = true;
 
@@ -143,7 +143,7 @@ class MineSweeper {
     }
   }
 
-  inBounds(row: number, col: number): boolean {
+  inBounds(row: number, col: number) {
     return 0 <= row && row < this.myTruth.length && 0 <= col && col < this.myTruth[0].length;
   }
 }
@@ -162,7 +162,7 @@ class MineSweeper {
 // - amount: Den opprinnelige prisen
 // - result: Dette er så den totale prisen med loyaltydiscount og kundediscount trukket fra
 
-function calculate(amount: number, type: number, years: number): number {
+function calculate(amount: number, type: number, years: number) {
   let result = 0;
   const disc = (years > 5) ? 5 / 100 : years / 100;
 
