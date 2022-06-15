@@ -339,8 +339,8 @@ function cellPicked(row, col) {
     const isSafeCell = myTruth[row][col] == 0;
 
     if (myTruth[row][col] == 0) {
-      for (int r = -1; r <= 1; r++) {
-        for (int c = -1; c <= 1; c++) {
+      for (let r = -1; r <= 1; r++) {
+        for (let c = -1; c <= 1; c++) {
           cellPicked(row + r, col + c);
         }
       }
