@@ -73,7 +73,7 @@ interface IUser {
 // Oppgave 5:
 // ---------------------------
 
-let n: any = "Ryan McDermott";
+let n: string = "Ryan McDermott";
 
 function splitIntoFirstAndLastName() {
   n = n.split(" ");
