@@ -10,7 +10,7 @@
 
 function a() {
   // get the language code
-  const languageCode = window.navigator.language
+  const languageCode = window.navigator.language;
 
   // if language ends with us
   if (countryCode.endsWith('US')) {
@@ -36,7 +36,7 @@ function canBuyBeer(age: number, money: number) {
 // Oppgave 3:
 //
 // Her er det brukt javascript ternaries som returnerer forskjellige verdier
-// om en condition er true eller false
+// avhengig av om en condition er true eller false
 // condition ? ifConditionTrue : ifConditionFalse
 // --------------------------
 
@@ -92,7 +92,7 @@ splitIntoFirstAndLastName();
 function getProduct(htmlResponse: HtmlResponse) {
   const title = htmlResponse.css('.title').html();
   const priceHTML = htmlResponse.css('.price').html();
-  let price: string;
+  let price: any;
 
   try {
     price = parseInt(priceHTML);
